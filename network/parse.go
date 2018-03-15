@@ -249,7 +249,8 @@ func parseSignSHA256(pkg, payload []byte, opts ParseOpts) ([]*api.ValueList, err
 func parseEncryptAES256(payload []byte, opts ParseOpts) ([]*api.ValueList, error) {
 	plaintext, err := decryptAES256(payload, opts.PasswordLookup)
 	if err != nil {
-		return nil, errors.New("AES256 decryption failure")
+		//return nil, errors.New("AES256 decryption failure")
+                return nil, err
 	}
 
 	return parse(plaintext, Encrypt, opts)
